@@ -64,7 +64,9 @@ for i in range(len(pred)):
     else:
         p.append(0)
 
-surv  = pd.Series(np.array(p,dtype=np.int64), index=test['PassengerId'].values,name='Survived')
+test['Survived'] = np.array(p,dtype=np.int64)
 
-# surv.to_csv('model_III.csv', header=True)
+surv = test.loc[:,['PassengerId','Survived']]
 
+# surv.to_csv('model_III.csv', header=True, index=False)
+surv.to_csv( 'submission.csv', header=True, index=False)
