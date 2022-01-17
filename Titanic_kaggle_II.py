@@ -18,6 +18,7 @@ def change_str(value):
         return 1
     else:
         return 0
+
 def change_embarked(value):
     if value == 'S':
         return 1
@@ -25,11 +26,18 @@ def change_embarked(value):
         return 2
     else:
         return 3
-train['Sex_binario'] = train['Sex'].map(change_str)
-train['Embarket_num'] = train['Embarked'].map(change_embarked)
-test['Sex_binario'] = test['Sex'].map(change_str)
-test['Embarket_num'] = test['Embarked'].map(change_embarked)
 
+# train['Sex_binario'] = train['Sex'].map(change_str)
+change = {'female':1 , 'male': 0}
+train['Sex_binario'] = train['Sex'].map(change)
+
+print(train['Sex_binario'])
+# train['Embarket_num'] = train['Embarked'].map(change_embarked)
+
+# test['Sex_binario'] = test['Sex'].map(change_str)
+# test['Embarket_num'] = test['Embarked'].map(change_embarked)
+
+exit()
 ## ['PassengerId', 'Pclass', 'Name', 'Sex', 'Age', 'SibSp', 'Parch',
 ##        'Ticket', 'Fare', 'Cabin', 'Embarked']
 # ['PassengerId', 'Survived', 'Pclass', 'Name', 'Sex', 'Age', 'SibSp',
